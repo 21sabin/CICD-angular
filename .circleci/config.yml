@@ -1,23 +1,28 @@
 version: 2.1
 jobs:
-  bobby:
+  job_one:
     docker:
       - image: circleci/ruby:2.4.2
     steps:
       - checkout
-      - run: echo 'A first hello'
-  sally:
+      - run: echo 'Hello from circleci'
+  job_two:
     docker:
-      - image: circleci/ruby:2.4.2
+      - image: circleci/node:4.8.2
     steps:
       - checkout
-      - run: echo "Double trouble"
+      - run:
+          name: node version
+          command: node -v
+      - run:
+          name: angular build
+          command: yarn ng --build --prod
 workflows:
   version: 2
   bobby_sally:
     jobs:
-      - bobby
-      - sally 
+      - job_one
+      - job_two 
  
   
    
