@@ -5,13 +5,15 @@ jobs:
       - image: circleci/ruby:2.4.2
     steps:
       - checkout
-      - run: 'npm install'
+      - run: echo 'Hello from circleci'
   sally:
     docker:
       - image: circleci/ruby:2.4.2
     steps:
       - checkout
-      - run: 'node -v'
+      - run:
+          name: node version
+          command: node -v
 workflows:
   version: 2
   bobby_sally:
