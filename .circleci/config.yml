@@ -1,5 +1,5 @@
 version: 2.1
- jobs:
+jobs:
   bobby:
     docker:
       - image: circleci/ruby:2.4.2
@@ -13,8 +13,8 @@ version: 2.1
       - checkout
       - run: echo "Double trouble"
 workflows:
-  version:2
-  bobby_sally
+  version: 2
+  bobby_sally:
     jobs:
       - bobby
       - sally 
