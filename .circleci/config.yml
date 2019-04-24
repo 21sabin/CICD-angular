@@ -1,10 +1,26 @@
  version: 2.1
  jobs:
-  build:
+  bobby:
     docker:
-      - image: circleci/<language>:<version TAG>
+      - image: circleci/ruby:2.4.2
     steps:
       - checkout
-      - run: 'echo command runs '
+      - run: echo 'A first hello'
+  sally:
+    docker:
+      - image: circleci/ruby:2.4.2
+    steps:
+      - checkout
+      - run: echo "Double trouble"
+  workflows:
+    version:2
+    bobby_sally
+      jobs:
+        - bobby
+        - sally 
+
+  
+  
  
 
+ 
